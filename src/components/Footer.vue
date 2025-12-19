@@ -21,23 +21,64 @@
 
   <!-- MIDDLE SECTION -->
   <div class="footer-middle">
-    <p> Hello This is empty for now</p>
+<h4>information:</h4>
+<ul>
+  <li>home</li>
+  <li>shop</li>
+  <li>about</li>
+  <li>product</li>
+  <li>contact</li>
+</ul>
+
   </div>
 
   <!-- RIGHT SECTION -->
   <div class="footer-right">
-    <p>
-      Hello This is the right side!
-    </p>
+<h4>Contact</h4>
+<ul>
+  <li>Telegram: @Vi_Chhi</li>
+  <li>Sale Phone Number: 016 333 740</li>
+  <li>Email: sovichet516@gmail.com</li>
+</ul>
+
+<div class="social-icons">
+  <a href="https://t.me/Vi_Chhi" target="_blank">
+    <img :src="telegram" alt="Telegram" />
+  </a>
+
+  <a href="#" target="_blank">
+    <img :src="instagram" alt="Instagram" />
+  </a>
+
+  <a href="#" target="_blank">
+    <img :src="xIcon" alt="X" />
+  </a>
+
+  <a href="#" target="_blank">
+    <img :src="facebook" alt="Facebook" />
+  </a>
+
+  <a href="#" target="_blank">
+    <img :src="tiktok" alt="TikTok" />
+  </a>
+</div>
+
+
   </div>
 
 </footer>
 
 </template>
 
-<script setup>
 
+<script setup>
+import telegram from '@/IMG/Social_1.jpg'
+import instagram from '@/IMG/Social_2.jpg'
+import xIcon from '@/IMG/Social_3.jpg'
+import facebook from '@/IMG/Social_4.jpg'
+import tiktok from '@/IMG/Social_5.jpg'
 </script>
+
 
 <style scoped>
 footer {
@@ -92,5 +133,52 @@ footer {
   align-items: center;
 }
 
+/* Middle Section */
+.footer-middle h4 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.footer-middle ul {
+  list-style: disc;         
+  padding-left: 18px;      
+}
+
+.footer-middle li {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+
+/* Right Side Section */
+.footer-right h4 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.footer-right ul {
+  list-style: disc;         
+  padding-left: 18px;
+  font-size: 14px;
+}
+
+.footer-right li {
+  margin-bottom: 6px;
+}
+
+.social-icons {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.social-icons img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
 
 </style>
