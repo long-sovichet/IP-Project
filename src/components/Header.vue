@@ -91,4 +91,7 @@
   cursor: pointer;
   font-size: 1.1rem;
 }
+.logo {
+  margin-right: 2rem;
+}
 </style>
