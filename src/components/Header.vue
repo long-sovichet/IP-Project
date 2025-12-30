@@ -1,12 +1,34 @@
 <template>
   <header class="header">
-    <!-- Logo -->
-    <div class="logo">
+    <!-- Top bar -->
+    <div class="top">
+    
+      <div class="logo">
+      <router-link to="/" class="logo-link">
       <h1>
-        <span class="tech">Tech</span>
-        <span class="c3"> C3</span>
+      <span class="tech">Tech</span>
+      <span class="c3"> C3</span>
       </h1>
+    </router-link>
     </div>
+
+
+      <!-- Search -->
+      <div class="search">
+        <input type="text" placeholder="Search..." />
+        <span class="search-icon">🔍</span>
+      </div>
+
+      <!-- Icons -->
+      <div class="icons">
+        <span>👤</span>
+        <span>🔔</span>
+        <span>🛒</span>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr />
 
     <!-- Navigation -->
     <nav class="nav">
@@ -16,35 +38,30 @@
       <router-link to="/contact">Contact Us</router-link>
       <router-link to="/about">About Us</router-link>
     </nav>
-
-    <!-- Right section -->
-    <div class="right">
-      <input type="text" placeholder="Search..." />
-      <span class="icon">👤</span>
-      <span class="icon">🔔</span>
-      <span class="icon">🛒</span>
-    </div>
   </header>
 </template>
 
 <script setup>
-// No logic needed
 </script>
 
 <style scoped>
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
   background-color: #f8f9fa;
-  border-bottom: 1px solid #ddd;
+}
+
+/* ===== Top bar ===== */
+.top {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 1rem 2rem;
+  gap: 2rem;
 }
 
 /* Logo */
 .logo h1 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 .tech {
@@ -57,10 +74,51 @@
   font-weight: bold;
 }
 
-/* Navigation */
+/* Search */
+.search {
+  display: flex;
+  align-items: center;
+  max-width: 420px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+}
+
+.search input {
+  width: 100%;
+  padding: 0.5rem 2.2rem 0.5rem 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 8px;
+  color: #777;
+  pointer-events: none;
+}
+
+/* Icons */
+.icons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Divider */
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 0;
+}
+
+/* ===== Navigation ===== */
 .nav {
   display: flex;
-  gap: 1.5rem;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.7rem 0;
 }
 
 .nav a {
@@ -74,24 +132,12 @@
   font-weight: bold;
 }
 
-/* Right section */
-.right {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
+.logo-link {
+  text-decoration: none;
 }
 
-.right input {
-  padding: 0.4rem 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.logo-link h1 {
+  margin: 0;
 }
 
-.icon {
-  cursor: pointer;
-  font-size: 1.1rem;
-}
-.logo {
-  margin-right: 2rem;
-}
 </style>

@@ -79,7 +79,7 @@ import brand7Src from '../IMG/Brand_7.jpg'
 }
 
 img {
-  max-width: 100%;
+  max-width: 80%;
   height: auto;
 }
 
