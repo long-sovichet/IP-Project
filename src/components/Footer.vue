@@ -1,75 +1,65 @@
 <template>
-<footer class="footer-container">
+  <footer class="footer-container">
+    <!-- LEFT SECTION -->
+    <div class="footer-left">
+      <h2 class="foot-logo">Tech <span class="logo-foot">C3</span></h2>
 
-  <!-- LEFT SECTION -->
-  <div class="footer-left">
-    <h2 class="foot-logo">
-  Tech <span class="logo-foot">C3</span>
-</h2>
+      <div class="search-box">
+        <input type="text" placeholder="Search..." />
+        <span class="search-icon">🔍</span>
+      </div>
 
-<div class="search-box">
-  <input type="text" placeholder="Search..." />
-  <span class="search-icon">🔍</span>
-</div>
+      <p class="address">
+        Address: Kampuchea Krom Blvd, Sangkat Teuk La’ak ti pir,<br />
+        Khan Toul Kork, Phnom Penh, Cambodia
+      </p>
+    </div>
 
-<p class="address">
-  Address: Kampuchea Krom Blvd, Sangkat Teuk La’ak ti pir,<br />
-  Khan Toul Kork, Phnom Penh, Cambodia
-</p>
+    <!-- MIDDLE SECTION -->
+    <div class="footer-middle">
+      <h4>information:</h4>
+      <ul>
+        <li>home</li>
+        <li>shop</li>
+        <li>about</li>
+        <li>product</li>
+        <li>contact</li>
+      </ul>
+    </div>
 
-  </div>
+    <!-- RIGHT SECTION -->
+    <div class="footer-right">
+      <h4>Contact</h4>
+      <ul>
+        <li>Telegram: @Vi_Chhi</li>
+        <li>Sale Phone Number: 016 333 740</li>
+        <li>Email: sovichet516@gmail.com</li>
+      </ul>
 
-  <!-- MIDDLE SECTION -->
-  <div class="footer-middle">
-<h4>information:</h4>
-<ul>
-  <li>home</li>
-  <li>shop</li>
-  <li>about</li>
-  <li>product</li>
-  <li>contact</li>
-</ul>
+      <div class="social-icons">
+        <a href="https://t.me/Vi_Chhi" target="_blank">
+          <img :src="telegram" alt="Telegram" />
+        </a>
 
-  </div>
+        <a href="#" target="_blank">
+          <img :src="instagram" alt="Instagram" />
+        </a>
 
-  <!-- RIGHT SECTION -->
-  <div class="footer-right">
-<h4>Contact</h4>
-<ul>
-  <li>Telegram: @Vi_Chhi</li>
-  <li>Sale Phone Number: 016 333 740</li>
-  <li>Email: sovichet516@gmail.com</li>
-</ul>
+        <a href="#" target="_blank">
+          <img :src="xIcon" alt="X" />
+        </a>
 
-<div class="social-icons">
-  <a href="https://t.me/Vi_Chhi" target="_blank">
-    <img :src="telegram" alt="Telegram" />
-  </a>
+        <a href="#" target="_blank">
+          <img :src="facebook" alt="Facebook" />
+        </a>
 
-  <a href="#" target="_blank">
-    <img :src="instagram" alt="Instagram" />
-  </a>
-
-  <a href="#" target="_blank">
-    <img :src="xIcon" alt="X" />
-  </a>
-
-  <a href="#" target="_blank">
-    <img :src="facebook" alt="Facebook" />
-  </a>
-
-  <a href="#" target="_blank">
-    <img :src="tiktok" alt="TikTok" />
-  </a>
-</div>
-
-
-  </div>
-
-</footer>
-
+        <a href="#" target="_blank">
+          <img :src="tiktok" alt="TikTok" />
+        </a>
+      </div>
+    </div>
+  </footer>
 </template>
-
 
 <script setup>
 import telegram from '@/IMG/Social_1.jpg'
@@ -78,7 +68,6 @@ import xIcon from '@/IMG/Social_3.jpg'
 import facebook from '@/IMG/Social_4.jpg'
 import tiktok from '@/IMG/Social_5.jpg'
 </script>
-
 
 <style scoped>
 footer {
@@ -90,7 +79,7 @@ footer {
   gap: 40px;
 }
 
-.footer-left{
+.footer-left {
   max-width: 300px;
 }
 
@@ -121,7 +110,7 @@ footer {
 .search-box input {
   border: none;
   outline: none;
-  flex: 1;           /* Makes input take full width */
+  flex: 1; /* Makes input take full width */
   font-size: 14px;
 }
 
@@ -140,15 +129,14 @@ footer {
 }
 
 .footer-middle ul {
-  list-style: disc;         
-  padding-left: 18px;      
+  list-style: disc;
+  padding-left: 18px;
 }
 
 .footer-middle li {
   margin-bottom: 6px;
   font-size: 14px;
 }
-
 
 /* Right Side Section */
 .footer-right h4 {
@@ -157,7 +145,7 @@ footer {
 }
 
 .footer-right ul {
-  list-style: disc;         
+  list-style: disc;
   padding-left: 18px;
   font-size: 14px;
 }
@@ -178,7 +166,8 @@ footer {
   height: 32px;
   object-fit: contain;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
-
 </style>
