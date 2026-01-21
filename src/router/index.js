@@ -8,6 +8,8 @@ import Brand4 from '../views/Brand4.vue'
 import Brand5 from '../views/Brand5.vue'
 import Brand6 from '../views/Brand6.vue'
 import Brand7 from '../views/Brand7.vue'
+import Shop from '../views/Shop.vue'
+import BrandPage from '../views/BrandPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,49 +17,60 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: Home,
     },
     {
       path: '/about',
       name: 'About',
-      component: About
+      component: About,
     },
     {
       path: '/brand1',
       name: 'Brand1',
-      component: Brand1
+      component: Brand1,
     },
     {
       path: '/brand2',
       name: 'Brand2',
-      component: Brand2
+      component: Brand2,
     },
     {
       path: '/brand3',
       name: 'Brand3',
-      component: Brand3
+      component: Brand3,
     },
     {
       path: '/brand4',
       name: 'Brand4',
-      component: Brand4
+      component: Brand4,
     },
     {
       path: '/brand5',
       name: 'Brand5',
-      component: Brand5
+      component: Brand5,
     },
     {
       path: '/brand6',
       name: 'Brand6',
-      component: Brand6
+      component: Brand6,
     },
     {
       path: '/brand7',
       name: 'Brand7',
-      component: Brand7
+      component: Brand7,
+    },
+    {
+      path: '/shop',
+      name: 'Shop',
+      component: Shop,
+    },
+    {
+      path: '/shop/:id',
+      name: 'BrandPage',
+      component: BrandPage,
+      props: true,
     }
-  ]
+  ],
 })
 
 export default router
