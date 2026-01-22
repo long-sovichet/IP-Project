@@ -10,6 +10,8 @@ import Brand6 from '../views/Brand6.vue'
 import Brand7 from '../views/Brand7.vue'
 import Login from '../components/Login.vue'
 import Register from '../components/Register.vue'
+import Shop from '../views/Shop.vue'
+import BrandPage from '../views/BrandPage.vue'
 import { useAuthStore } from '../stores/auth'
 
 const router = createRouter({
@@ -18,12 +20,12 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: Home,
     },
     {
       path: '/about',
       name: 'About',
-      component: About
+      component: About,
     },
     {
       path: '/login',
@@ -76,8 +78,19 @@ const router = createRouter({
       name: 'Brand7',
       component: Brand7,
       meta: { requiresAuth: true }
+    },
+    {
+      path: '/shop',
+      name: 'Shop',
+      component: Shop,
+    },
+    {
+      path: '/shop/:id',
+      name: 'BrandPage',
+      component: BrandPage,
+      props: true,
     }
-  ]
+  ],
 })
 
 router.beforeEach((to, from, next) => {

@@ -191,7 +191,7 @@ img {
   background-color: gray;
   position: absolute;
   top: 0;
-  left: calc(200px + 75px);
+  left: calc(200px + 75px - 20px);
 }
 
 .vertical-line-2 {

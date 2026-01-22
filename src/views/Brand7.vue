@@ -2,7 +2,6 @@
   <div>
     <Landing />
     <div class="brand-content">
-      <p>No items available for this brand yet.</p>
     </div>
   </div>
 </template>

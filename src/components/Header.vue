@@ -2,16 +2,14 @@
   <header class="header">
     <!-- Top bar -->
     <div class="top">
-    
       <div class="logo">
-      <router-link to="/" class="logo-link">
-      <h1>
-      <span class="tech">Tech</span>
-      <span class="c3"> C3</span>
-      </h1>
-    </router-link>
-    </div>
-
+        <router-link to="/" class="logo-link">
+          <h1>
+            <span class="tech">Tech</span>
+            <span class="c3"> C3</span>
+          </h1>
+        </router-link>
+      </div>
 
       <!-- Search -->
       <div class="search">
@@ -41,8 +39,7 @@
   </header>
 </template>
 
-<script setup>
-</script>
+<script setup></script>
 
 <style scoped>
 .header {
@@ -139,5 +136,4 @@ hr {
 .logo-link h1 {
   margin: 0;
 }
-
 </style>
