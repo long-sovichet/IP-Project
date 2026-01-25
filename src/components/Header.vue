@@ -33,7 +33,7 @@
     <!-- Navigation -->
     <nav class="nav">
       <router-link to="/">Home</router-link>
-      <router-link to="/product">Product</router-link>
+      <router-link to="/product" class="hidden">Product</router-link>
       <router-link to="/shop">Shop</router-link>
       <router-link to="/contact">Contact Us</router-link>
       <router-link to="/about">About Us</router-link>
@@ -199,6 +199,10 @@ hr {
 
 .logo-link h1 {
   margin: 0;
+}
+
+.hidden {
+  display: none;
 }
 
 

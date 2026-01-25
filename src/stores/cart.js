@@ -53,6 +53,7 @@ export const useCartStore = defineStore('cart', () => {
 
   const clearCart = () => {
     items.value = []
+    addNotification('You have successfully purchased your items!')
   }
 
   const toggleCartPopup = () => {

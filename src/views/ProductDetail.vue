@@ -50,7 +50,7 @@ if (product.value) {
   <div v-if="product" class="product-detail">
     <div class="product-container">
       <div class="left-side">
-        <button class="back-button" @click="goBack">←</button>
+        <button class="back-button" @click="goBack">← Back to Shop</button>
         <img :src="currentImage || product.image" :alt="product.name" class="product-image" />
         <div class="angle-images">
           <img v-for="(angleImg, index) in product.angleImages" :key="index" :src="angleImg" :alt="product.name + ' angle ' + (index + 1)" class="angle-image" @click="setCurrentImage(angleImg)" />
@@ -72,7 +72,6 @@ if (product.value) {
         </div>
         <div class="buttons">
           <button class="add-to-cart" @click="addToCart"><span class="cart-icon">🛒</span> Add to Cart</button>
-          <button class="buy-now">Buy Now</button>
         </div>
       </div>
     </div>
@@ -313,7 +312,7 @@ if (product.value) {
   padding: 10px 20px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1rem;
   transition: background 0.2s;
   margin-bottom: 200px;
   margin-left: -400px;

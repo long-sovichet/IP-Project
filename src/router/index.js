@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
+import Contact from '../views/Contact.vue'
 import Brand1 from '../views/Brand1.vue'
 import Brand2 from '../views/Brand2.vue'
 import Brand3 from '../views/Brand3.vue'

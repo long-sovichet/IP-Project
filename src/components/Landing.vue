@@ -7,67 +7,89 @@
         <button class="shop-button" @click="handleShopClick">Shop Now</button>
       </div>
       <div class="right-section">
-        <img :src="imageSrc" alt="Laptop Image" />
-      </div>
-    </div>
-    <div class="horizontal-line-full"></div>
-    <div class="brand-section">
-      <div class="brand-list">
-        <img :src="brand1Src" alt="Brand 1" class="brand-image" @click="handleBrandClick('/brand1')" />
-        <img :src="brand2Src" alt="Brand 2" class="brand-image" @click="handleBrandClick('/brand2')" />
-        <img :src="brand3Src" alt="Brand 3" class="brand-image" @click="handleBrandClick('/brand3')" />
-        <img :src="brand4Src" alt="Brand 4" class="brand-image" @click="handleBrandClick('/brand4')" />
-        <img :src="brand5Src" alt="Brand 5" class="brand-image" @click="handleBrandClick('/brand5')" />
-        <img :src="brand6Src" alt="Brand 6" class="brand-image" @click="handleBrandClick('/brand6')" />
-        <img :src="brand7Src" alt="Brand 7" class="brand-image" @click="handleBrandClick('/brand7')" />
-      </div>
-      <div class="vertical-line"></div>
-      <div class="brand-right">
-        <div class="a1-container">
-          <img :src="a1Src" alt="A1 Image" />
-        </div>
-        <div class="vertical-line-2"></div>
-        <div class="small-images">
-          <img :src="a2Src" alt="A2 Image" />
-          <img :src="a3Src" alt="A3 Image" />
-          <img :src="a4Src" alt="A4 Image" />
-        </div>
+        <img :src="productImages[currentImageIndex]" alt="Product Image" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import imageSrc from '../IMG/IMG_1.jpg'
-import a1Src from '../IMG/A1.jpg'
-import a2Src from '../IMG/A2.jpg'
-import a3Src from '../IMG/A3.jpg'
-import a4Src from '../IMG/A4.jpg'
-import brand1Src from '../IMG/Brand_1.jpg'
-import brand2Src from '../IMG/Brand_2.jpg'
-import brand3Src from '../IMG/Brand_3.jpg'
-import brand4Src from '../IMG/Brand_4.jpg'
-import brand5Src from '../IMG/Brand_5.jpg'
-import brand6Src from '../IMG/Brand_6.jpg'
-import brand7Src from '../IMG/Brand_7.jpg'
 import { useAuthStore } from '../stores/auth'
 import { useRouter } from 'vue-router'
+import { ref, onMounted, onUnmounted } from 'vue'
+
+// Import all main product images
+import ac1 from '../../public/IMG/Acer_Product/AC1.jpg'
+import ac2 from '../../public/IMG/Acer_Product/AC2.jpg'
+import ac3 from '../../public/IMG/Acer_Product/AC3.jpg'
+import ac4 from '../../public/IMG/Acer_Product/AC4.jpg'
+import ac5 from '../../public/IMG/Acer_Product/AC5.jpg'
+import ac6 from '../../public/IMG/Acer_Product/AC6.jpg'
+import al1 from '../../public/IMG/Alien_Ware_Product/AL1.jpg'
+import al2 from '../../public/IMG/Alien_Ware_Product/AL2.jpg'
+import al3 from '../../public/IMG/Alien_Ware_Product/AL3.jpg'
+import al4 from '../../public/IMG/Alien_Ware_Product/AL4.jpg'
+import ap1 from '../../public/IMG/Apple_Product/AP1.jpg'
+import ap2 from '../../public/IMG/Apple_Product/AP2.jpg'
+import ap3 from '../../public/IMG/Apple_Product/AP3.jpg'
+import ap4 from '../../public/IMG/Apple_Product/AP4.jpg'
+import ap5 from '../../public/IMG/Apple_Product/AP5.jpg'
+import as1 from '../../public/IMG/Asus_Product/AS1.jpg'
+import as2 from '../../public/IMG/Asus_Product/AS2.jpg'
+import as3 from '../../public/IMG/Asus_Product/AS3.jpg'
+import as4 from '../../public/IMG/Asus_Product/AS4.jpg'
+import as5 from '../../public/IMG/Asus_Product/AS5.jpg'
+import as6 from '../../public/IMG/Asus_Product/AS6.jpg'
+import d1 from '../../public/IMG/Dell_Product/D1.jpg'
+import d2 from '../../public/IMG/Dell_Product/D2.jpg'
+import d3 from '../../public/IMG/Dell_Product/D3.jpg'
+import d4 from '../../public/IMG/Dell_Product/D4.jpg'
+import d5 from '../../public/IMG/Dell_Product/D5.jpg'
+import d6 from '../../public/IMG/Dell_Product/D6.jpg'
+import ln1 from '../../public/IMG/Lenovo_Product/LN1.jpg'
+import ln2 from '../../public/IMG/Lenovo_Product/LN2.jpg'
+import ln3 from '../../public/IMG/Lenovo_Product/LN3.jpg'
+import ln4 from '../../public/IMG/Lenovo_Product/LN4.jpg'
+import ln5 from '../../public/IMG/Lenovo_Product/LN5.jpg'
+import ln6 from '../../public/IMG/Lenovo_Product/LN6.jpg'
+import m1 from '../../public/IMG/MSI_Product/M1.jpg'
+import m2 from '../../public/IMG/MSI_Product/M2.jpg'
+import m3 from '../../public/IMG/MSI_Product/M3.jpg'
+import m4 from '../../public/IMG/MSI_Product/M4.jpg'
+import m5 from '../../public/IMG/MSI_Product/M5.jpg'
+import m6 from '../../public/IMG/MSI_Product/M6.jpg'
 
 const authStore = useAuthStore()
 const router = useRouter()
 
+const productImages = [
+  ac1, ac2, ac3, ac4, ac5, ac6,
+  al1, al2, al3, al4,
+  ap1, ap2, ap3, ap4, ap5,
+  as1, as2, as3, as4, as5, as6,
+  d1, d2, d3, d4, d5, d6,
+  ln1, ln2, ln3, ln4, ln5, ln6,
+  m1, m2, m3, m4, m5, m6
+]
+
+const currentImageIndex = ref(0)
+let intervalId = null
+
+onMounted(() => {
+  intervalId = setInterval(() => {
+    currentImageIndex.value = (currentImageIndex.value + 1) % productImages.length
+  }, 3000)
+})
+
+onUnmounted(() => {
+  if (intervalId) {
+    clearInterval(intervalId)
+  }
+})
+
 const handleShopClick = () => {
   if (authStore.isAuthenticated) {
-    // Navigate to a shopping page or show products
-    router.push('/brand1') // Example: redirect to first brand
-  } else {
-    router.push('/login')
-  }
-}
-
-const handleBrandClick = (brandPath) => {
-  if (authStore.isAuthenticated) {
-    router.push(brandPath)
+    router.push('/shop')
   } else {
     router.push('/login')
   }
@@ -78,6 +100,7 @@ const handleBrandClick = (brandPath) => {
 .landing-container {
   position: relative;
 }
+
 .landing-page {
   display: flex;
   height: 80vh;
@@ -90,6 +113,21 @@ const handleBrandClick = (brandPath) => {
   text-align: center;
 }
 
+.right-section {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-section img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
 .left-section h1 {
   font-size: 3em;
 }
@@ -98,140 +136,26 @@ const handleBrandClick = (brandPath) => {
   font-size: 1.5em;
 }
 
-.right-section {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-img {
-  max-width: 80%;
-  height: auto;
-}
-
 .shop-button {
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 12px 24px;
   background-color: #007bff;
   color: white;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.brand-section {
-  padding: 20px;
-  text-align: left;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 150px;
-  position: relative;
+.shop-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
 }
 
-.brand-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex: 0 0 200px;
-}
-
-.brand-right {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  gap: 40px;
-  align-items: center;
-}
-
-.a1-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.a1-container img {
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-  aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
-}
-
-.horizontal-line-full {
-  width: 100vw;
-  height: 2px;
-  background-color: gray;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-}
-
-.small-images {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-}
-
-.small-images img {
-  width: 50%;
-  height: auto;
-  object-fit: cover;
-  aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
-}
-
-.brand-image {
-  max-width: 200px;
-  width: 100%;
-  height: auto;
-  cursor: pointer;
-  object-fit: contain;
-}
-
-.vertical-line {
-  width: 2px;
-  height: 100%;
-  background-color: gray;
-  position: absolute;
-  top: 0;
-  left: calc(200px + 75px - 20px);
-}
-
-.vertical-line-2 {
-  width: 2px;
-  height: 100%;
-  background-color: gray;
-  position: absolute;
-  top: 0;
-  left: calc(50vw + 295px);
-}
-
-/* Tablet styles */
-@media (max-width: 768px) {
-  .brand-section {
-    gap: 50px;
-  }
-
-  .brand-list {
-    flex: 0 0 150px;
-  }
-
-  .brand-image {
-    max-width: 150px;
-  }
-
-  .vertical-line {
-    left: calc(150px + 25px);
-  }
-
-  .vertical-line-2 {
-    left: calc(50vw + 150px);
-  }
-
-  .small-images img {
-    width: 60%;
-  }
+.shop-button:active {
+  transform: translateY(0);
 }
 
 /* Mobile styles */
@@ -243,54 +167,6 @@ img {
 
   .left-section h1 {
     font-size: 2em;
-  }
-
-  .left-section p {
-    font-size: 1.2em;
-  }
-
-  .brand-section {
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
-
-  .brand-list {
-    flex: none;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .brand-image {
-    max-width: 100px;
-  }
-
-  .brand-right {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .a1-container img {
-    max-width: 80%;
-  }
-
-  .small-images {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .small-images img {
-    width: 40%;
-    max-width: 100px;
-  }
-
-  .vertical-line,
-  .vertical-line-2 {
-    display: none;
   }
 }
 </style>

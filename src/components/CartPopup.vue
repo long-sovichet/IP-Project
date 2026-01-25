@@ -91,8 +91,9 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, nextTick } from 'vue'
 import { useCartStore } from '@/stores/cart'
+import { useRouter } from 'vue-router'
 
 const props = defineProps({
   isVisible: {
@@ -104,6 +105,7 @@ const props = defineProps({
 const emit = defineEmits(['close'])
 
 const cartStore = useCartStore()
+const router = useRouter()
 
 const cartItems = computed(() => cartStore.items)
 const totalPrice = computed(() => cartStore.totalPrice)
@@ -168,9 +170,15 @@ const closeConfirmationPopup = () => {
 }
 
 const done = () => {
+  console.log('Done button clicked')
   cartStore.clearCart()
-  closeConfirmationPopup()
-  cartStore.toggleCartPopup()
+  nextTick(() => {
+    isConfirmationPopupVisible.value = false
+    isPaymentPopupVisible.value = false
+    isBankTransferPopupVisible.value = false
+    emit('close')
+    router.push('/shop')
+  })
 }
 </script>
 
