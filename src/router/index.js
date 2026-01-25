@@ -12,6 +12,7 @@ import Login from '../components/Login.vue'
 import Register from '../components/Register.vue'
 import Shop from '../views/Shop.vue'
 import BrandPage from '../views/BrandPage.vue'
+import ProductDetail from '../views/ProductDetail.vue'
 import { useAuthStore } from '../stores/auth'
 
 const router = createRouter({
@@ -88,6 +89,12 @@ const router = createRouter({
       path: '/shop/:id',
       name: 'BrandPage',
       component: BrandPage,
+      props: true,
+    },
+    {
+      path: '/product/:id',
+      name: 'ProductDetail',
+      component: ProductDetail,
       props: true,
     }
   ],

@@ -153,8 +153,9 @@ img {
 
 .a1-container img {
   max-width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
+  aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
 }
 
 .horizontal-line-full {
@@ -175,14 +176,17 @@ img {
 
 .small-images img {
   width: 50%;
-  height: 50%;
+  height: auto;
   object-fit: cover;
+  aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
 }
 
 .brand-image {
-  width: 200px;
+  max-width: 200px;
+  width: 100%;
   height: auto;
   cursor: pointer;
+  object-fit: contain;
 }
 
 .vertical-line {
@@ -201,5 +205,92 @@ img {
   position: absolute;
   top: 0;
   left: calc(50vw + 295px);
+}
+
+/* Tablet styles */
+@media (max-width: 768px) {
+  .brand-section {
+    gap: 50px;
+  }
+
+  .brand-list {
+    flex: 0 0 150px;
+  }
+
+  .brand-image {
+    max-width: 150px;
+  }
+
+  .vertical-line {
+    left: calc(150px + 25px);
+  }
+
+  .vertical-line-2 {
+    left: calc(50vw + 150px);
+  }
+
+  .small-images img {
+    width: 60%;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  .landing-page {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left-section h1 {
+    font-size: 2em;
+  }
+
+  .left-section p {
+    font-size: 1.2em;
+  }
+
+  .brand-section {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .brand-list {
+    flex: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .brand-image {
+    max-width: 100px;
+  }
+
+  .brand-right {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .a1-container img {
+    max-width: 80%;
+  }
+
+  .small-images {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .small-images img {
+    width: 40%;
+    max-width: 100px;
+  }
+
+  .vertical-line,
+  .vertical-line-2 {
+    display: none;
+  }
 }
 </style>
