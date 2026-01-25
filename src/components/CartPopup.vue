@@ -84,7 +84,6 @@
         <div class="confirmation-message">
           <p>Your payment has been confirmed successfully!</p>
         </div>
-        <button class="payment-method-btn confirm-btn" @click="done">Done</button>
       </div>
     </div>
   </div>
@@ -163,22 +162,12 @@ const closeBankTransferPopup = () => {
 const confirmBankTransfer = () => {
   closeBankTransferPopup()
   isConfirmationPopupVisible.value = true
+  cartStore.clearCart()
+  emit('close')
 }
 
 const closeConfirmationPopup = () => {
   isConfirmationPopupVisible.value = false
-}
-
-const done = () => {
-  console.log('Done button clicked')
-  cartStore.clearCart()
-  nextTick(() => {
-    isConfirmationPopupVisible.value = false
-    isPaymentPopupVisible.value = false
-    isBankTransferPopupVisible.value = false
-    emit('close')
-    router.push('/shop')
-  })
 }
 </script>
 

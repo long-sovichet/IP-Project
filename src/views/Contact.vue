@@ -43,14 +43,14 @@
             <div class="icon">📍</div>
             <div>
               <h3>Address</h3>
-              <p>123 Tech Street<br>Digital City, DC 12345<br>United States</p>
+              <p>Russian Blvd<br>Phnom Penh,<br>Cambodia</p>
             </div>
           </div>
           <div class="info-item">
             <div class="icon">📞</div>
             <div>
               <h3>Phone</h3>
-              <p>+1 (555) 123-4567</p>
+              <p>+855 16333740</p>
             </div>
           </div>
           <div class="info-item">
@@ -87,6 +87,30 @@
         <div class="faq-item">
           <h3>How do I reset my account password?</h3>
           <p>Click on the "Forgot Password" link on the login page. Enter your email address, and we'll send you instructions to reset your password.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What payment methods do you accept?</h3>
+          <p>We accept major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers for online purchases. In-store payments can be made with cash, card, or mobile payments.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you offer international shipping?</h3>
+          <p>Yes, we ship internationally to most countries. Shipping costs and delivery times vary by location. Please contact us for a quote before placing your order.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How do I check product compatibility?</h3>
+          <p>Our product detail pages include compatibility information. For specific questions, contact our technical support team with your system specifications.</p>
+        </div>
+      </div>
+
+      <div class="social-media-section">
+        <h2>Follow Us</h2>
+        <p>Stay connected with us on social media for the latest updates, product releases, and tech tips!</p>
+        <div class="social-links">
+          <a href="#" class="social-link">📘 Facebook</a>
+          <a href="#" class="social-link">🐦 Twitter</a>
+          <a href="#" class="social-link">📷 Instagram</a>
+          <a href="#" class="social-link">💼 LinkedIn</a>
+          <a href="#" class="social-link">▶️ YouTube</a>
         </div>
       </div>
     </div>
@@ -263,6 +287,48 @@ input:focus, select:focus, textarea:focus {
 .faq-item p {
   color: #6b7280;
   line-height: 1.6;
+}
+
+.social-media-section {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.social-media-section h2 {
+  color: #1f2937;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.social-media-section p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #f3f4f6;
+  color: #374151;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.social-link:hover {
+  background: #2563eb;
+  color: white;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
