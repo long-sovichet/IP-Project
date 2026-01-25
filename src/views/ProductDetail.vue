@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { brands } from '@/stores/product.js'
+import { useCartStore } from '@/stores/cart.js'
 
 const route = useRoute()
 const router = useRouter()
@@ -19,8 +20,10 @@ const currentImage = ref('')
 
 const showCartMessage = ref(false)
 
+const cartStore = useCartStore()
+
 const addToCart = () => {
-  // Here you can add logic to actually add to cart, e.g., store in Pinia or localStorage
+  cartStore.addItem(product.value)
   showCartMessage.value = true
 }
 
@@ -29,8 +32,8 @@ const goBack = () => {
 }
 
 const proceedToCheckout = () => {
-  // Placeholder for checkout logic
-  alert('Proceed to checkout - to be implemented')
+  showCartMessage.value = false
+  cartStore.toggleCartPopup()
 }
 
 const setCurrentImage = (img) => {
@@ -90,7 +93,7 @@ if (product.value) {
       <h2 class="success-title">Item added to your cart!</h2>
       <p>{{ product.name }} has been successfully added to your cart.</p>
       <div class="modal-buttons">
-        <button class="back-button" @click="goBack">Back to Shop</button>
+        <button class="modal-back-button" @click="goBack">Back to Shop</button>
         <button class="checkout-button" @click="proceedToCheckout">Proceed to Checkout</button>
       </div>
     </div>
@@ -203,10 +206,10 @@ if (product.value) {
   background: #10b981;
   color: #fff;
   border: none;
-  padding: 12px 20px;
+  padding: 8px 16px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   transition: background 0.2s;
 }
@@ -304,16 +307,16 @@ if (product.value) {
 }
 
 .back-button {
-  background: #6b7280;
-  color: #fff;
+  background: white;
+  color: black;
   border: none;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 2rem;
   transition: background 0.2s;
-  align-self: flex-start;
-  margin-bottom: 250px;
+  margin-bottom: 200px;
+  margin-left: -400px;
 }
 
 .back-button:hover {
@@ -333,6 +336,21 @@ if (product.value) {
 
 .checkout-button:hover {
   background: #1d4ed8;
+}
+
+.modal-back-button {
+  background: #6b7280;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.modal-back-button:hover {
+  background: #4b5563;
 }
 
 .success-icon {

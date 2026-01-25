@@ -20,8 +20,10 @@
       <!-- Icons -->
       <div class="icons">
         <span>👤</span>
-        <span>🔔</span>
-        <span>🛒</span>
+        <div class="cart-icon" @click="cartStore.toggleCartPopup">
+          <span>🛒</span>
+          <span v-if="cartItemCount > 0" class="cart-count">{{ cartItemCount }}</span>
+        </div>
       </div>
     </div>
 
@@ -37,9 +39,29 @@
       <router-link to="/about">About Us</router-link>
     </nav>
   </header>
+
+      <!-- Cart Popup -->
+  <CartPopup :is-visible="cartStore.isCartPopupVisible" @close="cartStore.toggleCartPopup" />
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, computed } from 'vue'
+import { useCartStore } from '@/stores/cart.js'
+import CartPopup from './CartPopup.vue'
+
+const cartStore = useCartStore()
+const showCartPopup = ref(false)
+
+const cartItemCount = computed(() => cartStore.totalItems)
+
+const toggleCartPopup = () => {
+  showCartPopup.value = !showCartPopup.value
+}
+
+const closeCartPopup = () => {
+  showCartPopup.value = false
+}
+</script>
 
 <style scoped>
 .header {
@@ -103,6 +125,48 @@
   cursor: pointer;
 }
 
+.notification-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ef4444;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ef4444;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Divider */
 hr {
   border: none;
@@ -136,4 +200,6 @@ hr {
 .logo-link h1 {
   margin: 0;
 }
+
+
 </style>
